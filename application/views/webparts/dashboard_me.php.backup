@@ -1,0 +1,98 @@
+<?php
+/*
+ * This file created by Em Husnan 
+ * Copyright 2015
+ */
+?>
+<div class="container-fluid">
+    <?php if ($visibilityMenu['Dashboard']) { ?>
+
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-md-12">
+                <?php if (getLoggedInNamaPerusahaan() != "Individual") {
+                    if (count($outlets) <= 0) {
+                        ?>
+                        <div class="alert alert-warning" role="alert" style="text-align:center">
+                            Tidak ada tablet yang terhubung dengan ID Perusahaan
+                            <strong><?= getLoggedInUserID(); ?></strong></a>
+                        </div>
+                    <?php } ?>
+                    <div class="page-breadcrumb-wrap" style="margin:0 auto;">
+                        <div class="page-breadcrumb-info">
+                            <form class="form-inline" method="get">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">Outlet</label>
+                                    <select name="outlet" class="form-control" id="outlet">
+                                        <?php foreach ($outlets as $k => $v) {
+                                            if ($selected_outlet == $k) { ?>
+                                                <option value="<?= $k; ?>" selected><?= $v; ?></option>
+                                            <?php } else { ?>
+                                                <option value="<?= $k; ?>"><?= $v; ?></option>
+                                            <?php }
+                                        } ?>
+                                    </select>
+                                </div>
+                                <?php $this->load->view('webparts/parts/filter_date_mulai_sampai', array('date_start' => $selected_datestart, 'date_end' => $selected_dateend)); ?>
+                                <button type="submit" class="btn btn-primary">Proses</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="col-md-5">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <?php $this->load->view('webparts/parts/penjualan_hari_ini_me', array('date_start' => $selected_datestart, 'date_end' => $selected_dateend)); ?>
+        </div>
+        <div class="col-md-3 col-sm-6 ">
+            <?php $this->load->view('webparts/parts/jumlah_transaksi_hari_ini_me'); ?>
+        </div>
+<!--         <div class="col-md-3 col-sm-6 ">
+            <?php $this->load->view('webparts/parts/ratarata_transaksi_hari_ini_me'); ?>
+        </div> -->
+        <div class="col-md-3 col-sm-6">
+            <?php if ($visibilityMenu['LaporanLaba']) { $this->load->view('webparts/parts/laba_kotor_hari_ini_me'); } ?>
+        </div>
+        <div class="col-md-3 col-sm-6 ">
+            <?php $this->load->view('webparts/parts/biaya_hari_ini_me'); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <?php $this->load->view('webparts/parts/penjualan_bulan_ini_me'); ?>
+        </div>
+    </div>
+    <?php if ($isDiningTableVisible) { ?>
+        <div class="row">
+            <div class="col-md-12">
+                <?php $this->load->view('webparts/parts/pengunjung_bulan_ini_me'); ?>
+            </div>
+        </div>
+    <?php } ?>
+    <div class="row">
+        <div class="col-md-6">
+            <?php $this->load->view('webparts/parts/penjualan_terlaris_me'); ?>
+        </div>
+        <div class="col-md-6">
+            <?php $this->load->view('webparts/parts/rekap_pembayaran_me'); ?>
+        </div>
+    </div>
+
+    <?php if (getLoggedInNamaPerusahaan() != "Individual") {
+        if (count($outlets) > 1) {
+            ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <?php $this->load->view('webparts/parts/outlet_terlaris_me'); ?>
+                </div>
+            </div>
+        <?php }
+    } ?>
+    <?php } ?>
+</div>

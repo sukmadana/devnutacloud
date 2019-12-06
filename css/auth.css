@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+a {
+  color: #00ae2b;
+  text-decoration: none;
+  transition: .3s;
+}
+
+body {
+  font-family: 'SegoeUI';
+  font-weight: 400;
+  background: url('../images/nuta.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 800px;
+  margin: 0 auto;
+  font-size: 15px;
+  color: #7E7E7E;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  box-shadow: 0 0 0px 1000px white inset;
+  background-color: transparent !important;
+}
+
+/* container */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding-top: 150px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.container.is-medium {
+  max-width: 600px;
+}
+
+.form__container {
+  max-width: 268px;
+  margin: 0 auto;
+}
+
+/* form */
+.form__group {
+  display: block;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form__icon {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.form__icon i {
+  color: #aeaeae;
+}
+
+.form__input {
+  border-radius: 3px;
+  border: solid 1px #d9d9d9;
+  background-color: #ffffff;
+  outline: none;
+  padding: 9px 8px 10px;
+  width: 100%;
+  font-size: 16px;
+  color: #7E7E7E;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-left: -2px;
+}
+
+.form__select {
+  border-radius: 3px;
+  border: solid 1px #d9d9d9;
+  background-color: #ffffff;
+  outline: none;
+  padding: 9px 8px 10px;
+  width: 100%;
+  font-size: 16px;
+  color: #7E7E7E;
+  background-image: url('../images/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .4em auto, 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: #aeaeae;
+}
+
+.form__input::-ms-input-placeholder {
+  color: #aeaeae;
+}
+
+.form__input::placeholder {
+  color: #aeaeae;
+}
+
+.form__addons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 9px 15px 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 0px 3px 3px 0px;
+  background: #f5f5f5;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form__addons i {
+  color: #6F6F6F;
+}
+
+.form__group.has-icon .form__input {
+  padding-left: 30px;
+}
+
+.form__group.has-error {
+  margin-bottom: 10px;
+}
+
+.form__group.has-error .form__input {
+  border: 1px solid #FF0000;
+}
+
+.form__group.has-error .form__addons {
+  border-right: 1px solid #FF0000;
+  border-top: 1px solid #FF0000;
+  border-bottom: 1px solid #FF0000;
+}
+
+.form__error {
+  color: #FF0000;
+  font-size: 12px;
+}
+
+.form__input:focus,
+.form__select:focus {
+  border-color: #00ae2b !important;
+  outline: 0 !important;
+}
+
+.form__input:focus + .form__addons {
+  border-top-color: #00ae2b !important;
+  border-bottom-color: #00ae2b !important;
+  border-right-color: #00ae2b !important;
+  outline: 0 !important;
+}
+
+/* button */
+.btn {
+  border-radius: 3px;
+  background-color: #00ae2b;
+  width: 100%;
+  color: #ffffff;
+  padding: 9px 8px 10px;
+  font-size: 16px;
+  text-align: center;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: background-color .3s ease-out;
+  -moz-transition: background-color .3s ease-out;
+  -o-transition: background-color .3s ease-out;
+  transition: background-color .3s ease-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.btn:hover {
+  background-color: #009B26;
+}
+
+.btn:active {
+  background-color: #24C54C;
+}
+
+.btn.is-block {
+  display: block;
+}
+
+/* utilities */
+.text-center {
+  text-align: center;
+}
+
+.cl-grey {
+  color: #AEAEAE;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* responsive */
+
+@media screen and (max-height: 411px) {
+  body.login-page { 
+    height: auto !important;
+  }
+
+  body {
+    background-size: 400px;;
+  }
+
+  .container {
+    padding-top: 35px;
+  }
+  
+  .container.is-login {
+    height: 105vh;
+  }
+}

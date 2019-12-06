@@ -1,0 +1,154 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+    background: #F2F3F5;
+}
+
+a {
+    color: #0077FF !important;
+    text-decoration: none;
+}
+
+p {
+    line-height: 1.21;
+}
+
+.text-left { text-align: left }
+.text-right { text-align: right }
+.text-center { text-align: center }
+  
+.container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 897px;
+    height: 100vh;
+    padding: 30px 50px;
+    background: #ffffff;
+}
+
+.btn {
+    border-radius: 3px;
+    background-color: #00ae2b;
+    color: #ffffff;
+    padding: 9px 20px 10px;
+    font-size: 14px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: background-color .3s ease-out;
+    -moz-transition: background-color .3s ease-out;
+    -o-transition: background-color .3s ease-out;
+    transition: background-color .3s ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+  
+.btn:hover {
+    background-color: #009B26;
+}
+
+.btn:active {
+    background-color: #24C54C;
+}
+
+@media print {
+    @page {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+    .btn {
+        display: none;
+    }
+}
+
+.main {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    overflow-x: hidden;
+}
+
+.footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top: solid 0.5px #2d2d2d;
+    padding-top: 26px;
+}
+
+.footer p {
+    margin-bottom: 20px;
+}
+
+.head {
+    margin-bottom: 40px;
+}
+
+.subject {
+    margin-bottom: 45px;
+}
+
+.subject p:first-child {
+    margin-bottom: 15px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border-bottom: solid 0.5px #d9d9d9;
+    padding: 15px 15px 15px 0;
+}
+
+.table th:last-child,
+.table td:last-child {
+    padding-right: 0;
+}
+
+.table-responsive {
+    width: 100%;
+    min-height: .01%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .table-responsive>.table>tbody>tr>td,
+    .table-responsive>.table>tbody>tr>th,
+    .table-responsive>.table>tfoot>tr>td,
+    .table-responsive>.table>tfoot>tr>th,
+    .table-responsive>.table>thead>tr>td,
+    .table-responsive>.table>thead>tr>th {
+        white-space: nowrap;
+    }
+}
+.table-footer td {
+    padding: 6px 0;
+}
+

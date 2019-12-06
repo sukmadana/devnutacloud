@@ -1,0 +1,183 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Components Mix Bootstarp 3 Admin Dashboard Template">
+    <meta name="author" content="Westilian">
+    <title>Nuta Cloud - Login Trial Dev</title>
+    <link rel="stylesheet" href="<?= base_url(); ?>css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/animate.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/waves.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/layout.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/components.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/plugins.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/common-styles.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/pages.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/responsive.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/matmix-iconfont.css" type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>css/jquery.bxslider.css"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic" rel="stylesheet"
+          type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet"
+          type="text/css">
+    <style type="text/css">
+        .login-container-no-width {
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            margin: auto;
+            text-align: center;
+        }
+
+        .main-tab {
+            margin-left: 0px;
+            margin-right: 0px
+        }
+
+        .main-tab-content {
+            margin: 0;
+        }
+
+        .iconic-input .input-group-addon {
+            top: 6px;
+        }
+    </style>
+</head>
+<body class="login-page">
+<?php if (ENVIRONMENT === "development") { ?>
+    <div class="row">
+        <div class="col-md-12" style="background-color: lightyellow;text-align: center">
+            Notifikasi ini muncul karena saat ini anda berada di version <b>Development</b> akan otomatis hilang di
+            posisi Staging / Live
+        </div>
+    </div>
+<?php } ?>
+<div class="page-container">
+    <div class="login-branding">
+        <a href="index-2.html"><img src="<?= base_url(); ?>images/logo-large.png" alt="logo"
+                                    style="width: 100px;height: 71px;"></a>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 login-container-no-width">
+            <div class="block-content" id="loginperusahaan">
+                <div class="aside-tab-content">
+                    <form method="post" action="" id="forgotaccountform">
+                        <?php if ($state === 'firststep') { ?>
+                            <div class="form-group">
+                                <div class="form-group"><?php
+                                    if ($error == 0)
+                                        echo '<p style="padding:20px 0px;">Masukkan email yang anda gunakan saat daftar Nuta</p>';
+                                    else
+                                        echo '<p style="padding:20px 0px;color:red">' . $msg . '</p>';
+                                    ?>
+                                </div>
+                                <div class="input-group iconic-input">
+                                                <span class="input-group-addon">
+                                                    <span class="input-icon">
+                                                        <i class="fa fa-user"></i>
+                                                    </span>
+                                                </span>
+                                    <input type="text" placeholder="Email" class="form-control"
+                                           name="email" value="<?= $email; ?>">
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="input-group" style="display: block">
+                                    <input class="btn btn-primary btn-block btn-signin"
+                                           type="submit" name="actionbutton" value="Kirim"/>
+                                </div>
+                            </div>
+                        <?php } elseif ($state === 'secondstep') { ?>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <p style="padding:10px 0px;">Ada beberapa perusahaan yang menggunakan email
+                                        ini,<br/>
+                                        silahkan pilih perusahaan yang anda maksud.</p>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control"
+                                            name="perusahaan">
+                                        <?php foreach ($options_perusahaan as $p) { ?>
+                                            <option value="<?= $p; ?>"><?= $p; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <input type="hidden" value="<?= $email; ?>" name="email"/>
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group" style="display: block">
+                                    <input class="btn btn-primary btn-block btn-signin"
+                                           type="submit" name="actionbutton" value="Pilih"/>
+                                </div>
+                            </div>
+                        <?php } else if ($state = 'finish') { ?>
+
+                            <div class="form-group">
+                                Kami telah mengirim password ke email<br/><?= $email; ?>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group" style="display: block">
+                                    <a class="btn btn-primary btn-block btn-signin"
+                                       href="<?= base_url('authentication/loginv2'); ?>">Login
+                                    </a>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="login-footer">
+        &copy; <?= date('Y'); ?> Nutacloud
+
+    </div>
+
+</div>
+<script src="<?= base_url(); ?>js/jquery-1.11.2.min.js"></script>
+<script src="<?= base_url(); ?>js/jquery-migrate-1.2.1.min.js"></script>
+<script src="<?= base_url(); ?>js/jRespond.min.js"></script>
+<script src="<?= base_url(); ?>js/bootstrap.min.js"></script>
+<script src="<?= base_url(); ?>js/nav-accordion.js"></script>
+<script src="<?= base_url(); ?>js/hoverintent.js"></script>
+<script src="<?= base_url(); ?>js/waves.js"></script>
+<script src="<?= base_url(); ?>js/switchery.js"></script>
+<script src="<?= base_url(); ?>js/jquery.loadmask.js"></script>
+<script src="<?= base_url(); ?>js/icheck.js"></script>
+<script src="<?= base_url(); ?>js/bootbox.js"></script>
+<script src="<?= base_url(); ?>js/animation.js"></script>
+<script src="<?= base_url(); ?>js/colorpicker.js"></script>
+<script src="<?= base_url(); ?>js/bootstrap-datepicker.js"></script>
+<script src="<?= base_url(); ?>js/floatlabels.js"></script>
+<script src="<?= base_url(); ?>js/smart-resize.js"></script>
+<script src="<?= base_url(); ?>js/layout.init.js"></script>
+<script src="<?= base_url(); ?>js/matmix.init.js"></script>
+<script src="<?= base_url(); ?>js/retina.min.js"></script>
+<script src="<?= base_url(); ?>js/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        var slider = jQuery('#panduanIndividualSlider').bxSlider();
+        var slidera = jQuery('#panduanPerusahaanSlider').bxSlider();
+        jQuery('#modalPanduanIndividual').on('shown.bs.modal', function () {
+            slider.reloadSlider();
+        });
+        jQuery('#modalPanduanPerusahaan').on('shown.bs.modal', function () {
+            slidera.reloadSlider();
+        });
+
+    });
+</script>
+
+</html>

@@ -1,0 +1,8 @@
+.idea/
+application/nutacloud_sessions/
+application/logs/
+application/cache/
+output/
+application/config/database.php
+application/config/config.php
+vendor/
