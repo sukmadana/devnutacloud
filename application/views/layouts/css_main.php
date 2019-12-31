@@ -75,6 +75,7 @@ loadCSS("<?= base_url(); ?>css/animated-spinner.min.css");
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,500italic" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="<?= base_url('fonts/segoe-ui/style.css?v=') . $this->config->item('css_versions'); ?>" type="text/css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.bootstrap.min.css">
 
 <link rel="stylesheet" href="<?= base_url('js/dropzone/dropzone.css') ?>" type="text/css">
 <link rel="stylesheet" href="<?= base_url('js/dropzone/basic.css') ?>" type="text/css">

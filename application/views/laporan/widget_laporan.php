@@ -23,11 +23,13 @@
                 <div class="widget-head clearfix">
                     <span class="h-icon"><i class="fa fa-table"></i></span>
                     <h4><?= $title; ?></h4>
-                    <ul class="widget-action-bar pull-right">
-                        <li><span class="widget-collapse waves-effect w-collapse"><i
-                                    class="fa fa-angle-down"></i></span>
-                        </li>
-                    </ul>
+                    <div class="navbar-form navbar-right mr-10 search " role="search">
+                        <div class="form-group">
+                            <div id="searchbox"></div>
+                        </div>                        
+                        <span class="mt-0" id="tableAction"></span>
+
+                    </div>
                 </div>
                 <div class="widget-container">
                     <div class=" widget-block">
@@ -45,3 +47,21 @@
 </div>
 
 
+<div class="table-panel-foo-fix" id="footerTotal">
+    <footer class="footer-container">
+        <div class="row">
+            
+            <div class="col-md-6 col-sm-6 col-md-offset-6">
+                <div class="footer-right">
+                <div class="col-md-6">
+                        <h4>Grand Total</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 id="grandTotal"></h4>
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

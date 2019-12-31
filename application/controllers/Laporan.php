@@ -1820,7 +1820,7 @@ class Laporan extends Laporan_Controller
         $data = $this->setup_view_params($availableOutlets, $data);
 
         $getOutlet = $this->outlet->getByName(getPerusahaanNo(), $data["selected_outlet"]);
-        $data['title'] = 'Nutacloud - Laporan Rekap Penjualan per Jam' . $getOutlet->NamaOutlet . " " . $getOutlet->AlamatOutlet . " " . $data["date_start"] . " - " . $data["date_end"];
+        $data['title'] = 'Laporan Rekap Penjualan per Jam' ;
         $this->load->view('main_part', $data);
         $this->hiddenmsg('bc : ' . $this->benchmark->elapsed_time('code_start', 'code_end'));
     }

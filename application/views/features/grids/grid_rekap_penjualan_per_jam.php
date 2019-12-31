@@ -5,7 +5,7 @@
  */
 ?>
 <div class="table-responsive">
-    <table class="table table-bordered  table-striped dt-table-export ">
+    <table class="table table-bordered  table-striped dt-export " id="table" >
         <thead>
         <tr>
             <?php foreach ($datagrid['fields'] as $field) { ?>
@@ -15,9 +15,8 @@
             <?php } ?>
         </tr>
         </thead>
-        <tbody>
+        <tbody >
         <?php
-        $grandTotal = 0;
 
         foreach ($datagrid['result'] as $row) { ?>
             <tr>
@@ -44,10 +43,12 @@
                         } else {
                             echo $row->$fieldname;
                         }
+                        
                         ?>
                     </td>
                 <?php } ?>
             </tr>
+            
         <?php } ?>
         <?php $method = $this->uri->segment(2);
         if ($method != "laba" && $method != "rekapmutasistok" && $method != "saldokasrekening"
@@ -58,11 +59,10 @@
                 <td colspan="<?= count($datagrid['fields']) - 1; ?>">
                     Grand Total
                 </td>
-                <td>Rp. <?= $this->currencyformatter->format($grandTotal); ?></td>
+                <td id="grandTotalText">Rp. <?= $this->currencyformatter->format($grandTotal); ?></td>
             </tr>
             <!--/total-->
         <?php } ?>
         </tbody>
     </table>
 </div>
-

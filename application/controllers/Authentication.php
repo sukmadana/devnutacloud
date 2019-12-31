@@ -39,7 +39,7 @@ class Authentication extends CI_Controller
         if (!isNotEmpty($error)) {
             $error = 0;
         } else {
-            $this->load->library('encrypt');
+            $this->load->library('encryption');
             $encPerusahaan = $this->encrypt->encode($idperusahaan);
             $encUsername = $this->encrypt->encode($username);
             $encP = str_replace(array('+', '/', '='), array('-', '_', '~'), $encPerusahaan);
